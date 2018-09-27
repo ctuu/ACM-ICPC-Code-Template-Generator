@@ -1,4 +1,5 @@
 import os
+
 IGNORE = ['config', '.gitkeep']
 HEAD = 'head'
 TAIL = 'tail'
@@ -16,12 +17,15 @@ def _format(path):
 
 
 def p_add(path, name, parent, suffix):
-    name = name.replace('_', '\\_')
     if FORMAT is True:
         _format(path)
-    path_tuple = (path, name, suffix)
+
     if parent not in _dict:
         _dict[parent] = []
+
+    name = name.replace('_', '\\_')
+    path_tuple = (path, name, suffix)
+
     _dict[parent].append(path_tuple)
 
 
@@ -29,27 +33,31 @@ def p_walk(root, parent):
     if not os.path.isdir(root):
         os.mkdir(root)
         return
+
     for i in os.listdir(root):
+        cur_path = os.path.join(root, i)
+        name, suffix = os.path.splitext(i)
+
         if i in IGNORE:
             continue
-        cur_path = os.path.join(root, i)
 
         if os.path.isdir(cur_path):
             p_walk(cur_path, i)
             continue
 
-        name, suffix = os.path.splitext(i)
         p_add(cur_path, name, parent, suffix)
 
 
 def p_tran():
     for c in _dict:
         _tuple = (c, _dict[c])
+
         _list.append(_tuple)
 
 
 def p_sort():
     _list.sort(key=lambda c: c[0])
+
     for _sub in _list:
         _sub[1].sort(key=lambda c: c[2])
         _sub[1].sort(key=lambda c: c[1])
@@ -63,9 +71,11 @@ def p_gen():
 
     for section, sub_list in _list:
         _doc.write('\\section{%s}\n' % (section))
+
         for path, name, suffix in sub_list:
             _doc.write('\\subsection{%s}\n' % (name))
             _doc.write('\\lstinputlisting{%s}\n' % (path))
+
             suffix = suffix
 
     with open(TAIL, 'r', encoding='utf-8') as r:
