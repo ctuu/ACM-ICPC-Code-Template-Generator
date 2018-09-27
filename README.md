@@ -20,7 +20,7 @@ Example:
 ```
 ## Required
 - LaTex
-- Python
+- Python 3
 - (optional) Clang-Format
 
 ## Usage
