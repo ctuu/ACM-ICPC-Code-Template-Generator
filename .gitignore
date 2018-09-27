@@ -1,0 +1,12 @@
+# floder
+.vscode
+source/*
+!source/.gitkeep
+
+
+#files
+*.tex
+*.pdf
+*.aux
+*.log
+*.toc
