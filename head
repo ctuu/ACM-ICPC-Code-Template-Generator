@@ -1,36 +1,38 @@
-\documentclass{article}
+\documentclass[a4paper]{article}
 \usepackage[margin=1in]{geometry}
 \usepackage[Glenn]{fncychap}
 \usepackage{listings}
-\usepackage{color}
+\usepackage[outputdir=cache]{minted}
+\usepackage{xcolor}
 \usepackage{verbatim}
+\usepackage[colorlinks]{hyperref}
 \usepackage{xeCJK}
 \setCJKmainfont{Sarasa Gothic SC}
-\setCJKmonofont{Sarasa Gothic SC}
-\setmonofont{Iosevka Term Slab}
+\setCJKmonofont[ItalicFont={Sarasa Mono SC}]{Sarasa Mono SC}
+\setmonofont[BoldFont={Iosevka Term Slab}, ItalicFont={Iosevka Term Slab}]{Iosevka Term Slab}
 
 \title{Code Template}
 \author{myth}
 
 \definecolor{dkgreen}{rgb}{0,0.6,0}
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
-\definecolor{mauve}{rgb}{0.58,0,0.82}
-
+\definecolor{Orange} {HTML} {FF4200}
+\definecolor{CPPBrown}  {HTML} {A31515}
 \lstset{frame=tb,
   language=c++,
   aboveskip=3mm,
   belowskip=3mm,
+  showspaces=false,
   showstringspaces=false,
-  columns=flexible,
-  basicstyle={\small\ttfamily},
+  columns=fixed,
+  basicstyle={\ttfamily},
   numbers=none,
   numberstyle=\tiny\color{gray},
-  keywordstyle=\color{blue},
+  keywordstyle=\bfseries\color{blue},
   commentstyle=\color{dkgreen},
-  stringstyle=\color{mauve},
+  stringstyle=\color{CPPBrown},
   breaklines=true,
-  breakatwhitespace=true
-  tabsize=3
+  tabsize=4,
   morekeywords={alignas,continute,friend,register,true,alignof,decltype,goto,
   reinterpret_cast,try,asm,defult,if,return,typedef,auto,delete,inline,short,
   typeid,bool,do,int,signed,typename,break,double,long,sizeof,union,case,
@@ -38,20 +40,18 @@
   char,enum,new,static_cast,virtual,char16_t,char32_t,explict,noexcept,struct,
   void,export,nullptr,switch,volatile,class,extern,operator,template,wchar_t,
   const,false,private,this,while,constexpr,float,protected,thread_local,
-  const_cast,for,public,throw,std}
+  const_cast,for,public,throw,std},
   emph={map,set,multimap,multiset,unordered_map,unordered_set,
   unordered_multiset,unordered_multimap,vector,string,list,deque,
   array,stack,forwared_list,iostream,memory,shared_ptr,unique_ptr,
   random,bitset,ostream,istream,cout,cin,endl,move,default_random_engine,
-  uniform_int_distribution,iterator,algorithm,functional,bing,numeric,}
-  emphstyle=\color{CPPViolet}
+  uniform_int_distribution,iterator,algorithm,functional,bing,numeric,},
+  emphstyle=\color{Orange}
 }
 
 \begin{document}
 \begin{titlepage}
 \maketitle
-\thispagestyle{empty}
-\pagebreak
-\pagestyle{plain}
+\newpage
 \tableofcontents
 \end{titlepage}

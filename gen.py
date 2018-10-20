@@ -1,11 +1,14 @@
 import os
+import shutil
 
 IGNORE = ['config', '.gitkeep']
 HEAD = 'head'
 TAIL = 'tail'
 PATH = 'source'
 FILENAME = 'template'
-FORMAT = False
+FORMAT = False  # format code
+MINTED = True  # using minted or listings
+
 
 _list = []
 _dict = {}
@@ -74,7 +77,8 @@ def p_gen():
 
         for path, name, suffix in sub_list:
             _doc.write('\\subsection{%s}\n' % (name))
-            _doc.write('\\lstinputlisting{%s}\n' % (path))
+            prefix = '\\inputminted[frame=lines,framesep=2mm, breaklines]{c++}' if MINTED is True else '\\lstinputlisting[language=C++]'
+            _doc.write(prefix + '{"%s"}\n' % path.replace('\\', '/'))
 
             suffix = suffix
 
@@ -85,12 +89,12 @@ def p_gen():
 
 
 def p_build():
-    os.system('xelatex %s.tex' % FILENAME)
-    os.unlink('%s.pdf' % FILENAME)
-    os.system('xelatex %s.tex' % FILENAME)
-    os.unlink('%s.aux' % FILENAME)
-    os.unlink('%s.log' % FILENAME)
-    os.unlink('%s.toc' % FILENAME)
+    if not os.path.exists('cache'):
+        os.mkdir('cache')
+    os.system('xelatex -shell-escape -output-directory=cache %s.tex' % FILENAME)
+    os.system('xelatex -shell-escape -output-directory=cache %s.tex ' % FILENAME)
+    shutil.move('cache/%s.pdf' % FILENAME, '%s.pdf' % FILENAME)
+    shutil.rmtree('cache')
 
 
 p_walk(_root, 'Not classified')

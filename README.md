@@ -21,8 +21,10 @@ Example:
 ## Required
 - LaTex
 - Python 3
+- Pygments
 - (optional) Clang-Format
-
+- (optional) mono Font: [Iosevka Term Slab](https://github.com/be5invis/Iosevka)
+- (optional) CJK mono Font: [Sarasa Gothic](https://github.com/be5invis/Sarasa-Gothic)
 ## Usage
 ``` python
 python gen.py
@@ -31,7 +33,8 @@ python gen.py
 - Support CJK
 - Can format code with [Clang-Format](http://clang.llvm.org/docs/ClangFormat.html)
 
-Switch True/False the *Format function* by change the `FORMAT` value in **./gen.py** (default False)
+Switch True/False the *Format function* by change the `FORMAT` value in **./gen.py** (default False)</br>
+Using **listings** or **minted** to highlight code by change the `MINTED` value in **./gen.py** (default True)
 
 Sorted by lexicographical order.
 

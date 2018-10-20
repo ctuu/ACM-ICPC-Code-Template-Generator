@@ -1,5 +1,6 @@
 # floder
 .vscode
+cache
 source/*
 !source/.gitkeep
 
