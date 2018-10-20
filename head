@@ -30,7 +30,21 @@
   stringstyle=\color{mauve},
   breaklines=true,
   breakatwhitespace=true
-  tabsize=4
+  tabsize=3
+  morekeywords={alignas,continute,friend,register,true,alignof,decltype,goto,
+  reinterpret_cast,try,asm,defult,if,return,typedef,auto,delete,inline,short,
+  typeid,bool,do,int,signed,typename,break,double,long,sizeof,union,case,
+  dynamic_cast,mutable,static,unsigned,catch,else,namespace,static_assert,using,
+  char,enum,new,static_cast,virtual,char16_t,char32_t,explict,noexcept,struct,
+  void,export,nullptr,switch,volatile,class,extern,operator,template,wchar_t,
+  const,false,private,this,while,constexpr,float,protected,thread_local,
+  const_cast,for,public,throw,std}
+  emph={map,set,multimap,multiset,unordered_map,unordered_set,
+  unordered_multiset,unordered_multimap,vector,string,list,deque,
+  array,stack,forwared_list,iostream,memory,shared_ptr,unique_ptr,
+  random,bitset,ostream,istream,cout,cin,endl,move,default_random_engine,
+  uniform_int_distribution,iterator,algorithm,functional,bing,numeric,}
+  emphstyle=\color{CPPViolet}
 }
 
 \begin{document}
