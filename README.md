@@ -21,7 +21,7 @@ Example:
 ## Required
 - LaTex
 - Python 3
-- Pygments
+- Pygments `pip install Pygments`
 - (optional) Clang-Format
 - (optional) mono Font: [Iosevka Term Slab](https://github.com/be5invis/Iosevka)
 - (optional) CJK mono Font: [Sarasa Gothic](https://github.com/be5invis/Sarasa-Gothic)
